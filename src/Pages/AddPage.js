@@ -44,16 +44,16 @@ const AddPage = () => {
                   'Contact has been added.',
                   'success',
                 );
+                let { firstName, lastName, age, photo } = formInput;
+                let formData = new FormData();
+                formData.append('firstName', firstName);
+                formData.append('lastName', lastName);
+                formData.append('age', age);
+                formData.append('photo', photo);
+                dispatch(
+                    AddContact(formData)
+                );
             }
-            let { firstName, lastName, age, photo } = formInput;
-            let formData = new FormData();
-            formData.append('firstName', firstName);
-            formData.append('lastName', lastName);
-            formData.append('age', age);
-            formData.append('photo', photo);
-            dispatch(
-                AddContact(formData)
-            );
         })
         .catch((error) => {
             console.log(error);
@@ -109,6 +109,11 @@ const AddPage = () => {
                                     My Contacts
                                 </Button>
                             </NavLink>
+                            <NavLink to='/manage' style={styles.link}>
+                                <Button color='primary' style={styles.button2}>
+                                    Manage My Contacts
+                                </Button>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
@@ -156,12 +161,12 @@ const styles = {
     },
     button1: {
         width: '300px',
-        margin: '20px',
+        margin: '5px',
         borderRadius: '40px',
     },
     button2: {
         width: '200px',
-        margin: '15px',
+        margin: '5px',
         borderRadius: '40px',
     },
     link: {

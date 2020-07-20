@@ -52,6 +52,7 @@ export const AddContact = (form) => {
         });
         try {
             let res = await Axios.post(`${API_URL}/contact`, form);
+            console.log(res);
             dispatch({
                 type: ADD_ITEM,
                 payload: res.data.data,

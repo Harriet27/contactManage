@@ -26,7 +26,8 @@ export const ContactReducer = (state = INITIAL_STATE, action) => {
         case ADD_ITEM:
             return {
                 ...state,
-                contactList: [...state.contactList, action.payload],
+                // contactList: [...state.contactList, action.payload],
+                contactList: action.payload,
             };
         case FETCH_FAILED:
             return {

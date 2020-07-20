@@ -3,6 +3,7 @@ import { Input, Table, Button } from 'reactstrap';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetContacts, AddContact, DeleteContact, EditContact } from '../Redux/Action/ContactAction';
+import Header from '../Components/Header';
 
 const ManageContacts = () => {
     const dispatch = useDispatch();
@@ -57,8 +58,8 @@ const ManageContacts = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, add it!',
         })
-        .then((res) => {
-            if (res.value) {
+        .then((result) => {
+            if (result.value) {
                 Swal.fire(
                     'Added!',
                     'Contact info has been added.',
@@ -180,6 +181,8 @@ const ManageContacts = () => {
     };
 
     return (
+        <div>
+        <Header />
         <div className='d-flex'>
             <div className='col-3' style={{marginTop: '10px'}}>
                 <Input
@@ -187,25 +190,25 @@ const ManageContacts = () => {
                     placeholder='First Name'
                     name='firstName'
                     onChange={handleChangeInput}
-                />
+                    />
                 <Input
                     type='text'
                     placeholder='Last Name'
                     name='lastName'
                     onChange={handleChangeInput}
-                />
+                    />
                 <Input
                     type='number'
                     placeholder='Age'
                     name='age'
                     onChange={handleChangeInput}
-                />
+                    />
                 <Input
                     type='text'
                     placeholder='Photo Link URL'
                     name='photo'
                     onChange={handleChangeInput}
-                />
+                    />
                 <div className='d-flex justify-content-center'>
                     <Button outline variant='success' onClick={handleAdd}>
                         {
@@ -235,6 +238,7 @@ const ManageContacts = () => {
                     </tbody>
                 </Table>
             </div>
+        </div>
         </div>
     );
 };
