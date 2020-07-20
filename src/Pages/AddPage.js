@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Button } from 'reactstrap';
+import { Input, Button } from 'reactstrap';
 import Pic from '../Assets/guy4.png';
 import Add from '../Assets/add.png';
 import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { AddContact } from '../Redux/Action/ContactAction';
+import { NavLink } from 'react-router-dom';
 
 // https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg
 
@@ -71,21 +72,21 @@ const AddPage = () => {
                             <img src={Add} alt='add icon' height={70} />
                         </div>
                         <div style={styles.inputForm}>
-                            <input 
+                            <Input 
                                 type='text'
                                 name='firstName'
                                 placeholder='First Name'
                                 style={styles.inputField}
                                 onChange={handleChange}
                             />
-                            <input
+                            <Input
                                 type='text'
                                 name='lastName'
                                 placeholder='Last Name'
                                 style={styles.inputField}
                                 onChange={handleChange}
                             />
-                            <input
+                            <Input
                                 min='0'
                                 type='number'
                                 name='age'
@@ -93,16 +94,21 @@ const AddPage = () => {
                                 style={styles.inputField}
                                 onChange={handleChange}
                             />
-                            <input
+                            <Input
                                 type='text'
                                 name='photo'
                                 placeholder='Photo URL'
                                 style={styles.inputField}
                                 onChange={handleChange}
                             />
-                            <Button outline color='primary' style={styles.button} onClick={handleSubmit}>
+                            <Button outline color='primary' style={styles.button1} onClick={handleSubmit}>
                                 Add to my Contacts
                             </Button>
+                            <NavLink to='/list' style={styles.link}>
+                                <Button color='primary' style={styles.button2}>
+                                    My Contacts
+                                </Button>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
@@ -125,7 +131,7 @@ const styles = {
         padding: '50px 50px 50px 100px',
     },
     addForm: {
-        margin: '50px 120px 50px 180px',
+        margin: '50px 90px 50px 130px',
         backgroundColor: 'white',
         display: 'flex',
         justifyContent: 'center',
@@ -145,14 +151,22 @@ const styles = {
         width: '300px',
         margin: '20px',
         padding: '2px',
-        border: '0',
-        outline: '0',
-        borderBottom: '0.1px solid gainsboro'
+        borderRadius: '10px',
+        paddingLeft: '15px',
     },
-    button: {
+    button1: {
         width: '300px',
         margin: '20px',
         borderRadius: '40px',
+    },
+    button2: {
+        width: '200px',
+        margin: '15px',
+        borderRadius: '40px',
+    },
+    link: {
+        // color: 'white',
+        textDecoration: 'none',
     },
 };
 

@@ -1,22 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { 
-  ContactList,
-  ManageContacts,
-  RegisterPage,
-  LoginPage,
-  AddPage,
-} from './Pages';
+import { AddPage } from './Pages';
+import { List, Card } from './Components';
 
 function App() {
   return (
     <div>
       <Switch>
         <Route path='/' component={AddPage} exact />
-        <Route path='/list' component={ContactList} />
-        <Route path='/manage' component={ManageContacts} />
-        <Route path='/register' component={RegisterPage} />
-        <Route path='/login' component={LoginPage} />
+        <Route path='/list' component={List} />
+        <Route path='/card' component={Card} />
       </Switch>
     </div>
   );
